@@ -1,0 +1,27 @@
+<div class="converter-container">
+  <h2>Currency Converter</h2>
+  <label class="form-group">
+    Amount:
+    <input type="number" [(ngModel)]="amount" (input)="convert()" class="converter-input">
+  </label>
+  <br>
+  <label class="form-group">
+    From:
+    <select [(ngModel)]="fromCurrency" (change)="convert()" class="converter-select">
+      <option *ngFor="let currency of exchangeRates | keyvalue" [value]="currency.key">
+        {{ currency.value.Name }}
+      </option>
+    </select>
+  </label>
+  <br>
+  <label class="form-group">
+    To:
+    <select [(ngModel)]="toCurrency" (change)="convert()" class="converter-select">
+      <option *ngFor="let currency of exchangeRates | keyvalue" [value]="currency.key">
+        {{ currency.value.Name }}
+      </option>
+    </select>
+  </label>
+  <br>
+  <p class="result">Result: {{ result }}</p>
+</div>
